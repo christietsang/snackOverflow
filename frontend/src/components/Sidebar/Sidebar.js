@@ -38,9 +38,7 @@ function Sidebar(props) {
       }
     };
   });
-  const linkOnClick = () => {
-    document.documentElement.classList.remove("nav-open");
-  };
+
   const { routes, rtlActive, logo } = props;
   let logoImg = null;
   let logoText = null;
