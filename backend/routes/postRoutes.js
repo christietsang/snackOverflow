@@ -2,7 +2,7 @@ const express = require("express");
 const postController = require("../controllers/postController");
 const router = express.Router();
 const verifyJwtToken = require("../middleware/authJwt");
-const { upload } = require("./middleware/multer");
+const { upload } = require("../middleware/multer");
 
 router.get("/availablePosts", verifyJwtToken, postController.getAvailablePosts);
 router.post(
