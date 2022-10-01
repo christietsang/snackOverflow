@@ -7,15 +7,19 @@ import {
   buttonStyle,
   inputStyle,
 } from "../styles/registrationFormStyle";
+import { useNavigate } from "react-router-dom";
+
+const SERVER_URL = "http://localhost:3500/api"
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className={messageFormWrapperStyle}>
       <p className={messageFormHeadingStyle}>
-        Register
+        Login
       </p>
       <form className={messageFormStyle}>
         <div className={inputWrapperStyle}>
@@ -45,9 +49,9 @@ const Login = () => {
           className={buttonStyle}
           type="button"
           value="Send"
-          onClick={() => {
+          onClick={async () => {
 
-            fetch("/api/auth/signin", {
+            const response = await fetch(`${SERVER_URL}/auth/signin`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -57,6 +61,15 @@ const Login = () => {
                 password,
               }),
             });
+
+            if (response.status < 300) {
+              const data = await response.json();
+              localStorage.setItem("snackOverflowJwt", data.accessToken);
+              navigate("/home");
+            } else {
+              console.log("Incorrect credentials");
+            }
+             
             
           }}
         />

@@ -12,7 +12,16 @@ const authController = {
         email,
         password: bcrypt.hashSync(password, 8),
       });
-      res.json(newUser);
+      const token = jwt.sign({ id: newUser.id }, process.env.SECRET, {
+        expiresIn: 86400, // 24 hours
+      });
+  
+      res.status(200).send({
+        id: newUser._id,
+        nickname: newUser.nickname,
+        email: newUser.email,
+        accessToken: token,
+      });
     } catch (err) {
       res.status(500);
       if (err.code === 11000) {
