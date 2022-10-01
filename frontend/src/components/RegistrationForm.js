@@ -8,7 +8,8 @@ import {
   inputStyle,
 } from "../styles/registrationFormStyle";
 
-const Login = () => {
+export const RegistrationForm = () => {
+  const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,6 +19,17 @@ const Login = () => {
         Register
       </p>
       <form className={messageFormStyle}>
+        <div className={inputWrapperStyle}>
+          <label htmlFor="nickname">Nickname:</label>
+          <input
+            className={inputStyle}
+            type="text"
+            name="nickname"
+            id="nickname"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+          />
+        </div>
         <div className={inputWrapperStyle}>
           <label htmlFor="email">Email:</label>
           <input
@@ -47,12 +59,13 @@ const Login = () => {
           value="Send"
           onClick={() => {
 
-            fetch("/api/auth/signin", {
+            fetch("/api/auth/register", {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
+                nickname,
                 email,
                 password,
               }),
@@ -64,6 +77,3 @@ const Login = () => {
     </div>
   );
 };
-
-
-export default Login
