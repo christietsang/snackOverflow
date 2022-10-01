@@ -126,3 +126,9 @@ a:focus-visible {
 .welcome a::before {
   content: "➜ "
 }
+
+
+AccountIcon {
+  width: 10%;
+  height: 10%
+}
