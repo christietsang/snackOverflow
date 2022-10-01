@@ -56,15 +56,14 @@ app.use((req, res, next) => {
 });
 
 const authRoutes = require("./routes/authRoutes");
+const postRoutes = require("./routes/postRoutes");
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
-app.get("/getUserInfo", verifyJwtToken, (req, res) => {
+app.get("/api/getUserInfo", verifyJwtToken, (req, res) => {
   res.json(req.user);
 });
 
-app.get("/secret", verifyJwtToken, (req, res) => {
-  res.json({ message: "secret message" });
-});
 
 app.all("*", (req, res) => {
   res.status(404);

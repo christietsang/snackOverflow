@@ -17,6 +17,10 @@ const User = mongoose.model(
       password: {
         type: String,
         require: true
+      },
+      avatar: {
+        data: Buffer,
+        contentType: String
       }
     },
     {

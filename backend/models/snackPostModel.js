@@ -12,6 +12,10 @@ const SnackPost = mongoose.model(
       closingTime: {
         type: Date
       },
+      available: {
+        type: Boolean,
+        default: true
+      },
       comments: [
         {
           type: mongoose.Schema.Types.ObjectId,
@@ -21,6 +25,10 @@ const SnackPost = mongoose.model(
       owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+      },
+      image: {
+        data: Buffer,
+        contentType: String
       }
     },
     {
