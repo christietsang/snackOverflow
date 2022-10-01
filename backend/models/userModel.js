@@ -17,13 +17,7 @@ const User = mongoose.model(
       password: {
         type: String,
         require: true
-      },
-      snackPosts: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "SnackPost",
-        },
-      ],
+      }
     },
     {
       _id: true,

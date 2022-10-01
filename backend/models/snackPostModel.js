@@ -15,9 +15,13 @@ const SnackPost = mongoose.model(
       comments: [
         {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Comments",
+          ref: "Comment",
         },
       ],
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      }
     },
     {
       _id: true,
