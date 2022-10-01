@@ -35,17 +35,29 @@ const postController = {
       res.status(500).send(err);
     }
   },
-  // editPost: async (req, res) => {
-  //   const postId = req.params.id;
-  //   const postFields = ["title", "description", "closingTime", ""]
-    
-  //   try {
-  //     const updatedPost = await SnackPost.findByIdAndUpdate(
-  //       postId,
-  //       {title: req.body.title}
-  //     )
-  //   }
-  // },
+  editPost: async (req, res) => {
+    const postId = req.params.id;
+    const postFields = ["title", "description", "closingTime", "available"];
+
+    const updateData = {};
+    for (let key in req.body) {
+      if (postFields.indexOf(key) !== -1) {
+        updateData[key] = req.body[key];
+      }
+    }
+
+    try {
+      const updatedPost = await SnackPost.findByIdAndUpdate(
+        postId,
+        updateData,
+        { new: true }
+      ).exec();
+      res.json(updatedPost);
+    } catch (err) {
+      console.log(err);
+      res.json(err);
+    }
+  },
 };
 
 module.exports = postController;
