@@ -6,16 +6,24 @@ const SnackPost = mongoose.model(
     {
       title: {
         type: String,
-        require: true
+        require: true,
       },
       description: String,
       closingTime: {
-        type: Date
+        type: Date,
       },
-      comments: [
+      available: {
+        type: Boolean,
+        default: true,
+      },
+      owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+      images: [
         {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Comments",
+          data: Buffer,
+          contentType: String,
         },
       ],
     },

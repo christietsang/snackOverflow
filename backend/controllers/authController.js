@@ -12,10 +12,14 @@ const authController = {
         email,
         password: bcrypt.hashSync(password, 8),
       });
-      const token = jwt.sign({ id: newUser.id }, process.env.SECRET, {
-        expiresIn: 86400, // 24 hours
-      });
-  
+      const token = jwt.sign(
+        { id: newUser.id, nickname: newUser.nickname, email: newUser.email },
+        process.env.SECRET,
+        {
+          expiresIn: 86400, // 24 hours
+        }
+      );
+
       res.status(200).send({
         id: newUser._id,
         nickname: newUser.nickname,
@@ -25,11 +29,10 @@ const authController = {
     } catch (err) {
       res.status(500);
       if (err.code === 11000) {
-        res.json({message: "email already exists"});
+        res.json({ message: "email already exists" });
       } else {
         res.json(err);
       }
-      
     }
   },
   signInUser: async (req, res) => {
@@ -47,9 +50,13 @@ const authController = {
       });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.SECRET, {
-      expiresIn: 86400, // 24 hours
-    });
+    const token = jwt.sign(
+      { id: user.id, nickname: user.nickname, email: user.email },
+      process.env.SECRET,
+      {
+        expiresIn: 86400, // 24 hours
+      }
+    );
 
     res.status(200).send({
       id: user._id,
@@ -59,6 +66,5 @@ const authController = {
     });
   },
 };
-
 
 module.exports = authController;
