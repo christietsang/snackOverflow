@@ -3,7 +3,7 @@ import Public from './components/Public';
 import {Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import { RegistrationForm } from "./components/RegistrationForm";
-import DashLayout from './components/DashLayout';
+import Home from './components/DashLayout';
 import Welcome from './features/auth/Welcome'
 import NotesList from './features/notes/NotesList'
 import UsersList from './features/users/UsersList'
@@ -15,8 +15,8 @@ function App() {
         <Route index element={<Public />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<RegistrationForm />} />
-        <Route path="dash" element={<DashLayout />}>
-
+        <Route path="home" element={<Home />}>
+          
           <Route index element={<Welcome />} />
 
           <Route path="notes">
