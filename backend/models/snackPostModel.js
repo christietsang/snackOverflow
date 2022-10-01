@@ -16,20 +16,16 @@ const SnackPost = mongoose.model(
         type: Boolean,
         default: true,
       },
-      comments: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "Comment",
-        },
-      ],
       owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
       },
-      image: {
-        data: Buffer,
-        contentType: String,
-      },
+      images: [
+        {
+          data: Buffer,
+          contentType: String,
+        },
+      ],
     },
     {
       _id: true,

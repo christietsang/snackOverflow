@@ -4,14 +4,28 @@ const fs = require("fs").promises;
 const postController = {
   createPost: async (req, res) => {
     const { title, description, closingTime } = req.body;
+    const files = req.files;
+    const images = [];
+    if (files && files.length > 0) {
+      for (let file of files) {
+        try {
+          const imageBuffer = await fs.readFile(`./uploads/${file.filename}`);
+          const contentType = file.mimeType;
+          images.push({ data: imageBuffer, contentType });
+          fs.unlink(`./uploads/${file.filename}`);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
 
     try {
-      const imageBuffer = await fs.readFile(`./uploads/${file.filename}`);
       const newPost = await SnackPost.create({
         title,
         description,
         closingTime,
         owner: req.user.id,
+        images,
       });
       res.json(newPost);
     } catch (err) {

@@ -8,7 +8,7 @@ router.get("/availablePosts", verifyJwtToken, postController.getAvailablePosts);
 router.post(
   "/create",
   verifyJwtToken,
-  upload.single("avatar"),
+  upload.array("postImages", 5),
   postController.createPost
 );
 router.get("/byCurrentUser", verifyJwtToken, postController.getPostByUser);
