@@ -1,30 +1,36 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPlus } from "@fortawesome/free-solid-svg-icons"
+import { faPlus, faCircleUser } from "@fortawesome/free-solid-svg-icons"
 import { useNavigate  } from 'react-router-dom'
-import  { ReactComponent as AccountIcon }  from '../icons/circle-user-regular.svg'
-
-
+import { 
+    homeHeaderIcon, 
+    homeHeader,
+    homeHeaderContainer,
+    homeHeaderAddPostIcon,
+    homeHeaderText,
+ }  from '../styles/headerStyle'
+ import  { ReactComponent as AccountIcon }  from '../icons/circle-user-regular.svg'
+ 
 const DashHeader = () => {
 
     const navigate = useNavigate()
     const onAddPostClicked = () => navigate('/addPost')
+    const profileClicked = () => navigate('/profile')
 
 
     const content = (
-        <header className="dash-header">
-            <div className="dash-header__container">
-                
-                <Link to="/profile">
-                    <AccountIcon/>
-                </Link>
-                
+        <header className={homeHeader}>
+            <div className={homeHeaderContainer}>
+                <AccountIcon 
+                className={homeHeaderIcon}
+                onClick={profileClicked}/>
+
                 <Link to="/home">
-                    <h2 className="dash-header__title">snackOverflow</h2>
+                    <h2 className={ homeHeaderText }>snackOverflow</h2>
                 </Link>
 
                 <button
-                    className= "dash-header_add_post_button"
+                    className= { homeHeaderAddPostIcon }
                     title="addPost"
                     onClick={onAddPostClicked}
                 >
