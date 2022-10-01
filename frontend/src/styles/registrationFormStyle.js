@@ -14,7 +14,6 @@ export const messageFormHeadingStyle = style({
   fontSize: "1rem",
   textAlign: "center",
   margin: "0 0 20px 0",
-  color: "aliceblue",
 });
 
 export const messageFormStyle = style({
@@ -22,7 +21,6 @@ export const messageFormStyle = style({
   flexDirection: "column",
   alignItems: "center",
   rowGap: "10px",
-  color: "white",
 });
 
 export const inputWrapperStyle = style({

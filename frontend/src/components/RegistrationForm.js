@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import {
   inputWrapperStyle,
   messageFormStyle,
@@ -8,16 +10,18 @@ import {
   inputStyle,
 } from "../styles/registrationFormStyle";
 
+const SERVER_URL = "http://localhost:3500/api"
+
 export const RegistrationForm = () => {
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
 
   return (
     <div className={messageFormWrapperStyle}>
-      <p className={messageFormHeadingStyle}>
-        Register
-      </p>
+      <p className={messageFormHeadingStyle}>Register</p>
       <form className={messageFormStyle}>
         <div className={inputWrapperStyle}>
           <label htmlFor="nickname">Nickname:</label>
@@ -52,14 +56,13 @@ export const RegistrationForm = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        
+
         <input
           className={buttonStyle}
           type="button"
           value="Send"
-          onClick={() => {
-
-            fetch("/api/auth/register", {
+          onClick={async () => {
+            const response = await fetch(`${SERVER_URL}/auth/register`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -70,7 +73,14 @@ export const RegistrationForm = () => {
                 password,
               }),
             });
-            
+            if (response.status < 300) {
+              const data = await response.json();
+              localStorage.setItem("snackOverflowJwt", data.accessToken);
+              navigate("/home");
+            } else {
+              console.log("Error communicating with server");
+            }
+
           }}
         />
       </form>
