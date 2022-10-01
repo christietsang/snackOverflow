@@ -6,15 +6,15 @@ const SnackPost = mongoose.model(
     {
       title: {
         type: String,
-        require: true
+        require: true,
       },
       description: String,
       closingTime: {
-        type: Date
+        type: Date,
       },
       available: {
         type: Boolean,
-        default: true
+        default: true,
       },
       comments: [
         {
@@ -28,8 +28,8 @@ const SnackPost = mongoose.model(
       },
       image: {
         data: Buffer,
-        contentType: String
-      }
+        contentType: String,
+      },
     },
     {
       _id: true,

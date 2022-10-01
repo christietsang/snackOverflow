@@ -1,9 +1,12 @@
 const SnackPost = require("../models/snackPostModel");
+const fs = require("fs").promises;
 
 const postController = {
   createPost: async (req, res) => {
     const { title, description, closingTime } = req.body;
+
     try {
+      const imageBuffer = await fs.readFile(`./uploads/${file.filename}`);
       const newPost = await SnackPost.create({
         title,
         description,
