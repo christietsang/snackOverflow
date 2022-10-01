@@ -1,7 +1,6 @@
 
 import Home from "./views/Home.js";
-import Icons from "./views/Icons.js";
-import Notifications from "./views/Notifications.js";
+import addPost from "./views/addPost.js";
 import UserProfile from "./views/UserProfile.js";
 
 var routes = [
@@ -13,17 +12,10 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "tim-icons icon-atom",
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "tim-icons icon-bell-55",
-    component: Notifications,
+    path: "/addPost",
+    name: "add Post",
+    icon: "tim-icons icon-simple-add",
+    component: addPost,
     layout: "/admin"
   },
   {
