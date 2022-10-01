@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 // reactstrap components
 import {
+  Button,
   Collapse,
   DropdownToggle,
   DropdownMenu,
@@ -72,7 +73,15 @@ function AdminNavbar(props) {
           </NavbarToggler>
           <Collapse navbar isOpen={collapseOpen}>
             <Nav className="ml-auto" navbar>
+              <Button
+                className="tim-icons icon-simple-add"
+                color="info"
+                href="/admin/icons"
+              >
+              </Button>
+              
               <UncontrolledDropdown nav>
+
                 <DropdownToggle
                   caret
                   color="default"
@@ -83,6 +92,7 @@ function AdminNavbar(props) {
                   <i className="tim-icons icon-sound-wave" />
                   <p className="d-lg-none">Notifications</p>
                 </DropdownToggle>
+                
                 <DropdownMenu className="dropdown-navbar" right tag="ul">
                   <NavLink tag="li">
                     <DropdownItem className="nav-item">
@@ -116,14 +126,20 @@ function AdminNavbar(props) {
                 </DropdownToggle>
                 <DropdownMenu className="dropdown-navbar" right tag="ul">
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Profile</DropdownItem>
-                  </NavLink>
-                  <NavLink tag="li">
-                    <DropdownItem className="nav-item">Settings</DropdownItem>
+                    <DropdownItem 
+                      className="nav-item"
+                      href="/admin/user-profile"
+                      >
+                      Profile
+                    </DropdownItem>
                   </NavLink>
                   <DropdownItem divider tag="li" />
                   <NavLink tag="li">
-                    <DropdownItem className="nav-item">Log out</DropdownItem>
+                    <DropdownItem 
+                    className="nav-item"
+                    href="/admin/home"
+                    >Log out
+                    </DropdownItem>
                   </NavLink>
                 </DropdownMenu>
               </UncontrolledDropdown>
