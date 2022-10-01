@@ -18,12 +18,10 @@ const User = mongoose.model(
         type: String,
         require: true
       },
-      snackPosts: [
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "SnackPost",
-        },
-      ],
+      avatar: {
+        data: Buffer,
+        contentType: String
+      }
     },
     {
       _id: true,

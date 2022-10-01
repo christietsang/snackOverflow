@@ -12,6 +12,10 @@ const Comment = mongoose.model(
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
       },
+      post: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "SnackPost",
+      }
     },
     {
       _id: true,

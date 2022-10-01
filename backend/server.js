@@ -56,11 +56,16 @@ app.use((req, res, next) => {
 });
 
 const authRoutes = require("./routes/authRoutes");
+const postRoutes = require("./routes/postRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
+app.use("/api/comments", commentRoutes);
 
-app.get("/secret", verifyJwtToken, (req, res) => {
-  res.json({ message: "secret message" });
+app.get("/api/getUserInfo", verifyJwtToken, (req, res) => {
+  res.json(req.user);
 });
+
 
 app.all("*", (req, res) => {
   res.status(404);
