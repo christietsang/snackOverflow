@@ -11,6 +11,7 @@ import {
   FormGroup,
   Form,
   Input,
+  Label,
   Row,
   Col
 } from "reactstrap";
@@ -29,15 +30,12 @@ function addPost() {
                   <div className="block block-two" />
                   <div className="block block-three" />
                   <div className="block block-four" />
-                  <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    <img
-                      alt="..."
-                      className="avatar"
-                      src={require("../assets/img/emilyz.jpg")}
-                    />
-                    <h5 className="title">Mike Andrew</h5>
-                  </a>
-                  <p className="description">Ceo/Co-Founder</p>
+                  <img //PICTURE OF FOOD GOES HERE
+                    alt="..."
+                    className=""
+                    src={require("../assets/img/emilyz.jpg")}
+                  />
+                  <h5 className="title">Upload a photo</h5>
                 </div>
               </CardBody>
             </Card>
@@ -45,98 +43,60 @@ function addPost() {
           <Col md="8">
             <Card>
               <CardHeader>
-                <h5 className="title">Edit Profile</h5>
+                <h4 className="title">Share your snack!</h4>
               </CardHeader>
               <CardBody>
                 <Form>
                 <Row>
                     <Col className="pr-md-1" md="6">
                       <FormGroup>
-                        <label>First Name</label>
+                      <legend> Snack Name: </legend>
                         <Input
-                          placeholder="First Name"
+                          placeholder="Peanut Butter Cups"
                           type="text"
                         />
                       </FormGroup>
                     </Col>
                     <Col className="pl-md-1" md="6">
                       <FormGroup>
-                        <label>Last Name</label>
+                      <legend> Brand: </legend>
                         <Input
-                          placeholder="Last Name"
+                          placeholder="Reese's"
                           type="text"
                         />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-md-1" md="6">
-                      <FormGroup>
-                        <label>Username</label>
-                        <Input
-                          defaultValue="michael23"
-                          placeholder="Username"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col className="pl-md-1" md="6">
-                      <FormGroup>
-                        <label htmlFor="exampleInputEmail1">
-                          Email address
-                        </label>
-                        <Input placeholder="mike@email.com" type="email" />
                       </FormGroup>
                     </Col>
                   </Row>
                   <Row>
                     <Col md="12">
                       <FormGroup>
-                        <label>Address</label>
-                        <Input
-                          placeholder="Home Address"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-md-1" md="4">
-                      <FormGroup>
-                        <label>City</label>
-                        <Input
-                          placeholder="City"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col className="px-md-1" md="4">
-                      <FormGroup>
-                        <label>Country</label>
-                        <Input
-                          placeholder="Country"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                    <Col className="pl-md-1" md="4">
-                      <FormGroup>
-                        <label>Postal Code</label>
-                        <Input placeholder="ZIP Code" type="number" />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col md="8">
-                      <FormGroup>
-                        <label>About Me</label>
+                        <legend> Description: </legend>
                         <Input
                           cols="80"
-                          placeholder="Add description"
+                          placeholder="I brought them but I'm not hungry anymore."
                           rows="4"
                           type="textarea"
                         />
                       </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col className="pr-md-1" md="6">
+                    <FormGroup tag="fieldset">
+                      <legend>I want to: </legend>
+                      <FormGroup check>
+                        <Label check>
+                          <Input type="radio" name="radio1" />
+                          Trade my snack
+                        </Label>
+                      </FormGroup>
+                      <FormGroup check>
+                        <Label check>
+                          <Input type="radio" name="radio2" />
+                          Give away my snack
+                        </Label>
+                      </FormGroup>
+                    </FormGroup>
                     </Col>
                   </Row>
                 </Form>
