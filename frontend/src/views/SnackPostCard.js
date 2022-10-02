@@ -5,11 +5,9 @@ import {
   CardImg,
   CardTitle,
   CardText,
-  CardDeck,
-  CardSubtitle,
   CardImgOverlay,
-  CardBody,
 } from "reactstrap";
+import "../assets/css/snackPostCard.css"
 
 const SnackPostCard = (props) => {
   const title = props.title;
@@ -21,19 +19,28 @@ const SnackPostCard = (props) => {
       <Card inverse>
         <CardImg
           alt="Card image cap"
-          src="https://picsum.photos/900/270?grayscale"
+          src={require("../assets/img/snax.png")}
           style={{
             height: 200,
             opacity: 0.5,
           }}
           width="100%"
         />
-        <CardImgOverlay>
-          <CardTitle tag="h2">{title}</CardTitle>
-          <CardText class="text-monospace">
+        <CardImgOverlay className="snackPost">
+          <CardTitle 
+            className = "snackPost-title"
+            tag="h2">{title}
+          </CardTitle>
+          <CardText 
+            class="text-monospace">
             {description}
           </CardText>
-          <Button color="primary">Details...</Button>
+          <div className="snackPost-button-container">
+            <Button 
+            color="primary"
+            >Details...
+            </Button>
+          </div>
         </CardImgOverlay>
       </Card>
     </div>
