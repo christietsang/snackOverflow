@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   Button,
@@ -12,13 +12,14 @@ import "../assets/css/snackPostCard.css";
 const SnackPostCard = (props) => {
   const title = props.title;
   const description = props.description;
+  const imageID = props.imageID
 
   return (
     <div style={{height: "100%"}}>
       <Card inverse style={{padding: "0.8rem"}}>
         <CardImg
           alt="Card image cap"
-          src={require("../assets/img/snax.png")}
+          src={require(`../assets/img/snacks/${imageID}.png`)}
           style={{
             width: "100%",
             marginBottom: "8px"
@@ -29,7 +30,7 @@ const SnackPostCard = (props) => {
           <CardTitle className="snackPost-title" tag="h2">
             {title}
           </CardTitle>
-          <CardText class="text-monospace">{description}</CardText>
+          <CardText className ="text-monospace">{description}</CardText>
           <div className="snackPost-button-container">
             <Button
               color="primary"
