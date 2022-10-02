@@ -15,18 +15,14 @@ const SnackPostCard = (props) => {
   const imageID = props.imageID
 
   return (
-    <div style={{height: "100%"}}>
+    <div style={{height: "100%", textAlign: "center"}}>
       <Card inverse style={{padding: "0.8rem"}}>
         <CardImg
           alt="Card image cap"
           src={require(`../assets/img/snacks/${imageID}.png`)}
-          style={{
-            width: "100%",
-            marginBottom: "8px"
-          }}
-          width="100%"
+          height="auto"
+          style={{maxWidth: "400px", margin: "auto", marginBottom: "1rem"}}
         />
-        {/* <CardImgOverlay className="snackPost"> */}
           <CardTitle className="snackPost-title" tag="h2">
             {title}
           </CardTitle>
@@ -41,7 +37,7 @@ const SnackPostCard = (props) => {
               Details...
             </Button>
           </div>
-        {/* </CardImgOverlay> */}
+
       </Card>
     </div>
   );
