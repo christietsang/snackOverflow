@@ -23,6 +23,51 @@ function AddPost() {
   const [description, setDescription] = useState("");
   const [duration, setDuration] = useState("endOfDay");
 
+  const [selectedFile, setSelectedFile] = useState();
+
+  const handleFileSelect = (event) => {
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleSubmission = async () => {
+    const formData = new FormData();
+    if (selectedFile) formData.append("postImages", selectedFile);
+
+    const addMinutes = (date, minutes) => {
+      return new Date(date.getTime() + minutes * 60000);
+    };
+
+    const headers = {
+      Accept: "application/json",
+      "x-access-token": localStorage.getItem("snackOverflowJwt") ?? "",
+    };
+    let closingTime;
+    if (duration === "endOfDay") {
+      closingTime = new Date().setUTCHours(23, 59, 59, 999);
+    } else {
+      const minutes = Number(duration);
+      closingTime = addMinutes(new Date(), minutes);
+    }
+
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("closingTime", closingTime);
+
+    const response = await fetch(`${SERVER_URL}/posts/create`, {
+      method: "POST",
+      headers: headers,
+      mode: "cors",
+      body: formData,
+    });
+    if (response.status < 300) {
+      resetInputs();
+      window.location.assign("/sap/home");
+    } else {
+      const data = await response.json();
+      console.log(data);
+    }
+  };
+
   const resetInputs = () => {
     setTitle("");
     setDescription("");
@@ -48,9 +93,18 @@ function AddPost() {
                     src={require("../assets/img/snax.png")}
                   />
 
-                  <Button variant="light">
-                    <span className="title">Upload a photo</span>
-                  </Button>
+                  <input type="file" name="file" onChange={handleFileSelect} />
+                  {selectedFile && (
+                    <div>
+                      <p>Filename: {selectedFile.name}</p>
+                      <p>Filetype: {selectedFile.type}</p>
+                      <p>Size in bytes: {selectedFile.size}</p>
+                      <p>
+                        lastModifiedDate:{" "}
+                        {selectedFile.lastModifiedDate.toLocaleDateString()}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </CardBody>
             </Card>
@@ -129,46 +183,8 @@ function AddPost() {
                   className="btn-fill"
                   color="primary"
                   type="submit"
-                  onClick={async (e) => {
-                    const addMinutes = (date, minutes) => {
-                      return new Date(date.getTime() + minutes * 60000);
-                    };
-
-                    const headers = {
-                      "Content-Type": "application/json",
-                      Accept: "application/json",
-                      "x-access-token":
-                        localStorage.getItem("snackOverflowJwt") ?? "",
-                    };
-                    let closingTime;
-                    if (duration === "endOfDay") {
-                      closingTime = new Date().setUTCHours(23, 59, 59, 999);
-                    } else {
-                      const minutes = Number(duration);
-                      closingTime = addMinutes(new Date(), minutes);
-                    }
-
-                    const body = {
-                      title,
-                      description,
-                      closingTime,
-                    };
-
-                    const response = await fetch(`${SERVER_URL}/posts/create`, {
-                      method: "POST",
-                      headers: headers,
-                      mode: "cors",
-                      body: JSON.stringify(body),
-                    });
-                    if (response.status < 300) {
-                      resetInputs();
-                      window.location.assign("/sap/home");
-                    } else {
-                      const data = await response.json();
-                      console.log(data);
-                    }
-                  }}
-                  href="/SAP/home"
+                  onClick={handleSubmission}
+                  // href="/SAP/home"
                 >
                   Save
                 </Button>

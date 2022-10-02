@@ -1,18 +1,24 @@
-import React, { useState } from "react";
-import {
-  Card,
-  Button,
-  CardImg,
-  CardTitle,
-  CardText,
-  CardImgOverlay,
-} from "reactstrap";
+import React from "react";
+import { Card, Button, CardImg, CardTitle, CardText } from "reactstrap";
 import "../assets/css/snackPostCard.css";
 
 const SnackPostCard = (props) => {
   const title = props.title;
   const description = props.description;
   const imageID = props.imageID;
+  let image;
+  function _arrayBufferToBase64(buffer) {
+    var binary = "";
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return window.btoa(binary);
+  }
+  if (props.images.length > 0) {
+    image = props.images[0].data;
+  }
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -20,7 +26,11 @@ const SnackPostCard = (props) => {
         <div style={{ height: "200px", margin: "auto", marginBottom: "1rem" }}>
           <CardImg
             alt="Card image cap"
-            src={require(`../assets/img/snacks/${imageID}.png`)}
+            src={
+              image
+                ? `data:image/png;base64,${_arrayBufferToBase64(image.data)}`
+                : require(`../assets/img/snacks/${imageID}.png`)
+            }
             style={{ height: "200px", margin: "auto", marginBottom: "1rem" }}
           />
         </div>
