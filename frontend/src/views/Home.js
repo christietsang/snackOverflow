@@ -19,6 +19,7 @@ import {
 import {
   chartExample2,
 } from "../variables/charts.js";
+import SnackPostCard from "./SnackPostCard.js";
 
 function Home() {
   const SERVER_URL = "http://localhost:3500/api";
@@ -55,6 +56,7 @@ function Home() {
         }
         ></Button>
       <Row>
+          <SnackPostCard title="test" postImages="asfas" />
           <Col lg="4">
             <Card className="card-chart">
               <CardHeader>
