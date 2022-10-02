@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 // reactstrap components
 import { Row, Col } from "reactstrap";
-import SnackPostCard from "../components/SnackPostCard";
+import SnackPostCard from "../views/SnackPostCard";
 
 function Home() {
   const SERVER_URL = "http://localhost:3500/api";
