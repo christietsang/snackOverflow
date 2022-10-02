@@ -43,7 +43,7 @@ function AddPost() {
                     src={require("../assets/img/snax.png")}
                   />
 
-                  <h2 className="title">Upload a photo</h2>
+<Button variant="light"><span className="title">Upload a photo</span></Button>
                 </div>
               </CardBody>
             </Card>
