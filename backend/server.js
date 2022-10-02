@@ -11,15 +11,22 @@ const corsOptions = require("./config/corsOptions");
 const allowedOrigins = require("./config/allowedOrigins");
 const db = require("./config/database");
 const verifyJwtToken = require("./middleware/authJwt");
+const bodyParser = require("body-parser");
 
 const PORT = process.env.PORT || 3500;
 require("dotenv").config();
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(logger);
 app.use(cors(corsOptions));
-app.use(express.json());
 app.use(cookieParser());
 app.use(errorHandler);
+app.use((req, res, next) => {
+  console.log(req.headers);
+  next();
+})
+
 
 const server = http.createServer(app);
 

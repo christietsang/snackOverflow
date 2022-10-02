@@ -4,6 +4,7 @@ const fs = require("fs").promises;
 const postController = {
   createPost: async (req, res) => {
     const { title, description, closingTime } = req.body;
+    
     const files = req.files;
     const images = [];
     if (files && files.length > 0) {
@@ -23,7 +24,7 @@ const postController = {
       const newPost = await SnackPost.create({
         title,
         description,
-        closingTime: new Date(closingTime),
+        closingTime: closingTime,
         owner: req.user.id,
         images,
       });

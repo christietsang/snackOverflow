@@ -1,6 +1,6 @@
 
 import Home from "./views/Home.js";
-import addPost from "./views/addPost.js";
+import AddPost from "./views/AddPost.js";
 import UserProfile from "./views/UserProfile.js";
 
 var routes = [
@@ -15,7 +15,7 @@ var routes = [
     path: "/addPost",
     name: "add Post",
     icon: "tim-icons icon-simple-add",
-    component: addPost,
+    component: AddPost,
     layout: "/admin"
   },
   {
