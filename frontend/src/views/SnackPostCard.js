@@ -4,6 +4,7 @@ import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, Car
 
 const SnackPostCard = (props) => {
   const title = props.title;
+  const description = props.description
   const postImages = props.postImages;
 
   return (
