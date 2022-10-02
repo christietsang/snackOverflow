@@ -58,7 +58,7 @@ function AddPost() {
                   <Row>
                     <Col md="5">
                       <FormGroup>
-                        <legend> Snack Name: </legend>
+                        <p style={{ fontSize: "25px" }}> Snack Name: </p>
                         <Input
                           placeholder="Peanut Butter Cups"
                           type="text"
@@ -73,7 +73,7 @@ function AddPost() {
                   <Row>
                     <Col md="5">
                       <FormGroup>
-                        <legend> Description: </legend>
+                        <p style={{ fontSize: "25px" }}> Description: </p>
                         <Input
                           cols="50"
                           placeholder="I brought them but I'm not hungry anymore."
@@ -89,7 +89,7 @@ function AddPost() {
                   <Row>
                     <Col className="pr-md-1" md="6">
                       <FormGroup tag="fieldset">
-                        <legend>Expiration Time:</legend>
+                        <p style={{ fontSize: "25px" }}> Expiration Time: </p>
                         <FormGroup>
                           <Label for="exampleSelect">Select</Label>
                           <Input
@@ -123,11 +123,12 @@ function AddPost() {
                     };
                     const accessToken =
                       localStorage.getItem("snackOverflowJwt");
-                      const headers = {
-                        'Content-Type': "application/json",
-                        'Accept':'application/json',
-                        "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzg4NjU5ODk1YmFjMTVkNzI1YmM3NCIsIm5pY2tuYW1lIjoiQm9zY28yIiwiZW1haWwiOiJib3NjbzJAdGVzdC5jb20iLCJpYXQiOjE2NjQ2Nzg4NDksImV4cCI6MTY2NDc2NTI0OX0.Wu0xwaUKLxoRVPcwVOzKhF7RpAfDiZ89C3eAPh6_LTA",
-                      };
+                    const headers = {
+                      "Content-Type": "application/json",
+                      Accept: "application/json",
+                      "x-access-token":
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzg4NjU5ODk1YmFjMTVkNzI1YmM3NCIsIm5pY2tuYW1lIjoiQm9zY28yIiwiZW1haWwiOiJib3NjbzJAdGVzdC5jb20iLCJpYXQiOjE2NjQ2Nzg4NDksImV4cCI6MTY2NDc2NTI0OX0.Wu0xwaUKLxoRVPcwVOzKhF7RpAfDiZ89C3eAPh6_LTA",
+                    };
                     let closingTime;
                     if (duration === "endOfDay") {
                       closingTime = new Date().setUTCHours(23, 59, 59, 999);
@@ -145,7 +146,7 @@ function AddPost() {
                     const response = await fetch(`${SERVER_URL}/posts/create`, {
                       method: "POST",
                       headers: headers,
-                      mode: 'cors',
+                      mode: "cors",
                       body: JSON.stringify(body),
                     });
                     const data = await response.json();
