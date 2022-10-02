@@ -28,7 +28,7 @@ function Home() {
         <Row>
           {snackPosts.map((post, index) => (
             <Col lg="4" key={index}>
-              <SnackPostCard />
+              <SnackPostCard {...post}/>
             </Col>
           ))}
         </Row>
