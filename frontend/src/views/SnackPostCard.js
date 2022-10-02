@@ -1,27 +1,41 @@
-
-import React from 'react';
-import { Card, Button, CardImg, CardTitle, CardText, CardDeck, CardSubtitle, CardBody } from 'reactstrap';
+import React from "react";
+import {
+  Card,
+  Button,
+  CardImg,
+  CardTitle,
+  CardText,
+  CardDeck,
+  CardSubtitle,
+  CardImgOverlay,
+  CardBody,
+} from "reactstrap";
 
 const SnackPostCard = (props) => {
   const title = props.title;
-  const description = props.description
+  const description = props.description;
   const postImages = props.postImages;
 
   return (
     <div>
-    <Card
-      body
-      className="text-center"
-      style={{
-        width: "18rem",
-      }}
-    >
-      <CardTitle tag="h5">Special Title Treatment</CardTitle>
-      <CardText>
-        With supporting text below as a natural lead-in to additional content.
-      </CardText>
-      <Button color="primary">Go somewhere</Button>
-    </Card>
+      <Card inverse>
+        <CardImg
+          alt="Card image cap"
+          src="https://picsum.photos/900/270?grayscale"
+          style={{
+            height: 200,
+            opacity: 0.5,
+          }}
+          width="100%"
+        />
+        <CardImgOverlay>
+          <CardTitle tag="h2">{title}</CardTitle>
+          <CardText class="text-monospace">
+            {description}
+          </CardText>
+          <Button color="primary">Details...</Button>
+        </CardImgOverlay>
+      </Card>
     </div>
   );
 };
