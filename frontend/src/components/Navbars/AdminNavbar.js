@@ -76,7 +76,7 @@ function AdminNavbar(props) {
               <Button
                 className="tim-icons icon-simple-add"
                 color="info"
-                href="/admin/icons"
+                href="/admin/addPost"
               >
               </Button>
               
