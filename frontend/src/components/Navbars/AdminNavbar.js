@@ -76,7 +76,7 @@ function AdminNavbar(props) {
               <Button
                 className="tim-icons icon-simple-add"
                 color="info"
-                href="/admin/addPost"
+                href="/sap/addPost"
               >
               </Button>
               
@@ -128,7 +128,7 @@ function AdminNavbar(props) {
                   <NavLink tag="li">
                     <DropdownItem 
                       className="nav-item"
-                      href="/admin/user-profile"
+                      href="/sap/user-profile"
                       >
                       Profile
                     </DropdownItem>
@@ -137,7 +137,7 @@ function AdminNavbar(props) {
                   <NavLink tag="li">
                     <DropdownItem 
                     className="nav-item"
-                    href="/admin/home"
+                    href="/sap/home"
                     >Log out
                     </DropdownItem>
                   </NavLink>
