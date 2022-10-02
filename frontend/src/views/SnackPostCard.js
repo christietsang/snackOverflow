@@ -12,7 +12,6 @@ import "../assets/css/snackPostCard.css"
 const SnackPostCard = (props) => {
   const title = props.title;
   const description = props.description;
-  const postImages = props.postImages;
 
   return (
     <div>
