@@ -21,12 +21,15 @@ function Home() {
   useEffect(() => {
     getSnackPosts();
   }, []);
-  console.log(snackPosts);
+
+
+
   return (
     <>
       <div className="content">
         <Row>
           {snackPosts.map((post, index) => (
+
             <Col lg="4" key={index}>
               <SnackPostCard {...post}/>
             </Col>
