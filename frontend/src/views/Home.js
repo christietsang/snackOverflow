@@ -65,7 +65,7 @@ function Home(props) {
             <Card className="card-chart">
               <CardBody>
                 <div className="chart-area" >
-                  asdafs
+                  <h1 className="text-center"> asdasfasf</h1>
                 </div>
               </CardBody>
             </Card>
