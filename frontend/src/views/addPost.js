@@ -43,12 +43,12 @@ function addPost() {
           <Col md="8">
             <Card>
               <CardHeader>
-                <h4 className="title">Share your snack!</h4>
+                <h2 className="title">Share your snack!</h2>
               </CardHeader>
               <CardBody>
                 <Form>
                 <Row>
-                    <Col className="pr-md-1" md="6">
+                    <Col md="5">
                       <FormGroup>
                       <legend> Snack Name: </legend>
                         <Input
@@ -57,24 +57,15 @@ function addPost() {
                         />
                       </FormGroup>
                     </Col>
-                    <Col className="pl-md-1" md="6">
-                      <FormGroup>
-                      <legend> Brand: </legend>
-                        <Input
-                          placeholder="Reese's"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
                   </Row>
                   <Row>
-                    <Col md="12">
+                    <Col md="5">
                       <FormGroup>
                         <legend> Description: </legend>
                         <Input
-                          cols="80"
+                          cols="50"
                           placeholder="I brought them but I'm not hungry anymore."
-                          rows="4"
+                          rows="2"
                           type="textarea"
                         />
                       </FormGroup>
@@ -83,17 +74,29 @@ function addPost() {
                   <Row>
                     <Col className="pr-md-1" md="6">
                     <FormGroup tag="fieldset">
-                      <legend>I want to: </legend>
+                      <legend>Expiration Time:</legend>
                       <FormGroup check>
                         <Label check>
                           <Input type="radio" name="radio1" />
-                          Trade my snack
+                          Default (End of the day)
                         </Label>
                       </FormGroup>
                       <FormGroup check>
                         <Label check>
-                          <Input type="radio" name="radio2" />
-                          Give away my snack
+                          <Input type="radio" name="radio1" />
+                          30 minutes
+                        </Label>
+                      </FormGroup>
+                      <FormGroup check>
+                        <Label check>
+                          <Input type="radio" name="radio1" />
+                          1 hour
+                        </Label>
+                      </FormGroup>
+                      <FormGroup check>
+                        <Label check>
+                          <Input type="radio" name="radio1" />
+                          2 hours
                         </Label>
                       </FormGroup>
                     </FormGroup>
