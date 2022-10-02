@@ -8,12 +8,22 @@
 Registration
 POST /api/auth/register
 
+body: {
+  nickname: String;
+  email: String
+  password: DateTime,
+}
 Returns user data and access token
 ```
 
 ```
 Sign-in
 POST /api/auth/signin
+
+body: {
+  email: String
+  password: DateTime,
+}
 
 Returns user data and access token
 ```
@@ -41,7 +51,7 @@ Returns a list of available posts
 ```
 
 ```
-Create a posts
+Create a post
 POST /api/posts/create
 
 header: x-access-token: <your_token>
