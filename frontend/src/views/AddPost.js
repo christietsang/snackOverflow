@@ -26,8 +26,8 @@ function AddPost() {
   const resetInputs = () => {
     setTitle("");
     setDescription("");
-    setDuration("endOfDay")
-  }
+    setDuration("endOfDay");
+  };
   return (
     <>
       <div className="content">
@@ -67,6 +67,7 @@ function AddPost() {
                       <FormGroup>
                         <p style={{ fontSize: "25px" }}> Snack Name: </p>
                         <Input
+                          maxLength={15}
                           placeholder="Peanut Butter Cups"
                           type="text"
                           value={title}
@@ -83,6 +84,7 @@ function AddPost() {
                       <FormGroup>
                         <p style={{ fontSize: "25px" }}> Description: </p>
                         <Input
+                          maxLength={45}
                           cols="50"
                           placeholder="I brought them but I'm not hungry anymore."
                           rows="2"
@@ -151,7 +153,7 @@ function AddPost() {
                       description,
                       closingTime,
                     };
-       
+
                     const response = await fetch(`${SERVER_URL}/posts/create`, {
                       method: "POST",
                       headers: headers,
@@ -174,7 +176,6 @@ function AddPost() {
             </Card>
           </Col>
         </Row>
-
       </div>
     </>
   );
