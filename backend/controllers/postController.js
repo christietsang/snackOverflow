@@ -23,7 +23,7 @@ const postController = {
       const newPost = await SnackPost.create({
         title,
         description,
-        closingTime,
+        closingTime: new Date(closingTime),
         owner: req.user.id,
         images,
       });
