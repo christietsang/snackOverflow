@@ -15,7 +15,7 @@ import {
   Col
 } from "reactstrap";
 
-function UserProfile() {
+function addPost() {
   return (
     <>
       <div className="content">
@@ -154,4 +154,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default addPost;
