@@ -1,0 +1,9 @@
+.snackPost {
+    display: flex;
+    flex-direction: column;
+}
+
+.snackPost-button-container {
+    margin-top: auto;
+    align-self: center;
+}

@@ -7,35 +7,39 @@ import {
   CardText,
   CardImgOverlay,
 } from "reactstrap";
+import "../assets/css/snackPostCard.css";
 
 const SnackPostCard = (props) => {
   const title = props.title;
   const description = props.description;
-  const postImages = props.postImages;
 
   return (
     <div>
       <Card inverse>
         <CardImg
           alt="Card image cap"
-          src="https://picsum.photos/900/270?grayscale"
+          src={require("../assets/img/snax.png")}
           style={{
             height: 200,
             opacity: 0.5,
           }}
           width="100%"
         />
-        <CardImgOverlay>
-          <CardTitle tag="h2">{title}</CardTitle>
+        <CardImgOverlay className="snackPost">
+          <CardTitle className="snackPost-title" tag="h2">
+            {title}
+          </CardTitle>
           <CardText class="text-monospace">{description}</CardText>
-          <Button
-            color="primary"
-            onClick={() => {
-              window.location.assign(`/sap/view-post/${props._id}`);
-            }}
-          >
-            Details...
-          </Button>
+          <div className="snackPost-button-container">
+            <Button
+              color="primary"
+              onClick={() => {
+                window.location.assign(`/sap/view-post/${props._id}`);
+              }}
+            >
+              Details...
+            </Button>
+          </div>
         </CardImgOverlay>
       </Card>
     </div>
