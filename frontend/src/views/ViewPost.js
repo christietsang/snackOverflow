@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/sidebar.css";
 import { useLocation } from "react-router-dom";
+import base64ArrayBuffer from "../util/bufferArrayToStringBase64";
 
 // reactstrap components
 import { Button, Card, CardBody, CardText, Row, Col } from "reactstrap";
@@ -12,6 +13,7 @@ function ViewPost() {
   const [comment, setComment] = useState("");
   const [postComments, setPostComments] = useState([]);
   const [postData, setPostData] = useState({});
+  const [imageBase64, setImageBase64] = useState("");
 
   const onClickHandler = async () => {
     if (comment) {
@@ -52,7 +54,11 @@ function ViewPost() {
       }
     );
     const data = await response.json();
+    if (data.images.length > 0) {
+      data.image = data.images[0].data;
+    }
     setPostData(data);
+    return data;
   };
 
   const getPostComments = async () => {
@@ -72,7 +78,9 @@ function ViewPost() {
     setPostComments(data);
   };
   useEffect(() => {
-    getPostData();
+    getPostData().then((post) =>
+      base64ArrayBuffer(post.image.data).then((str) => setImageBase64(str))
+    );
     getPostComments();
   }, []);
 
@@ -93,7 +101,11 @@ function ViewPost() {
                   <img //PICTURE OF FOOD GOES HERE
                     alt="..."
                     className=""
-                    src={require("../assets/img/snax.png")}
+                    src={
+                      postData?.image
+                        ? `data:image/png;base64,${imageBase64}`
+                        : require("../assets/img/snax.png")
+                    }
                   />
                   <h3 className="title">{postData.title ?? ""}</h3>
                   <h5 className="description">{postData.description ?? ""}</h5>

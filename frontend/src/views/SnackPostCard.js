@@ -1,24 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Button, CardImg, CardTitle, CardText } from "reactstrap";
 import "../assets/css/snackPostCard.css";
+import base64ArrayBuffer from "../util/bufferArrayToStringBase64";
 
 const SnackPostCard = (props) => {
   const title = props.title;
   const description = props.description;
   const imageID = props.imageID;
-  let image;
-  function _arrayBufferToBase64(buffer) {
-    var binary = "";
-    var bytes = new Uint8Array(buffer);
-    var len = bytes.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
+  const [imageBase64, setImageBase64] = useState("");
+
+  const convertImage = async () => {
+    setImageBase64(await base64ArrayBuffer(props.images[0].data.data));
+  };
+  useEffect(() => {
+    if (props.images.length > 0) {
+      convertImage();
     }
-    return window.btoa(binary);
-  }
-  if (props.images.length > 0) {
-    image = props.images[0].data;
-  }
+  }, []);
 
   return (
     <div style={{ textAlign: "center" }}>
@@ -27,8 +25,8 @@ const SnackPostCard = (props) => {
           <CardImg
             alt="Card image cap"
             src={
-              image
-                ? `data:image/png;base64,${_arrayBufferToBase64(image.data)}`
+              imageBase64
+                ? `data:image/png;base64,${imageBase64}`
                 : require(`../assets/img/snacks/${imageID}.png`)
             }
             style={{ height: "200px", margin: "auto", marginBottom: "1rem" }}
