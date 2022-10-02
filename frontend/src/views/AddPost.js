@@ -21,8 +21,13 @@ const SERVER_URL = "http://localhost:3500/api";
 function AddPost() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [duration, setDuration] = useState("");
+  const [duration, setDuration] = useState("endOfDay");
 
+  const resetInputs = () => {
+    setTitle("");
+    setDescription("");
+    setDuration("endOfDay")
+  }
   return (
     <>
       <div className="content">
@@ -43,7 +48,9 @@ function AddPost() {
                     src={require("../assets/img/snax.png")}
                   />
 
-                  <h2 className="title">Upload a photo</h2>
+                  <Button variant="light">
+                    <span className="title">Upload a photo</span>
+                  </Button>
                 </div>
               </CardBody>
             </Card>
@@ -62,6 +69,7 @@ function AddPost() {
                         <Input
                           placeholder="Peanut Butter Cups"
                           type="text"
+                          value={title}
                           onChange={(e) => {
                             setTitle(e.target.value);
                           }}
@@ -79,6 +87,7 @@ function AddPost() {
                           placeholder="I brought them but I'm not hungry anymore."
                           rows="2"
                           type="textarea"
+                          value={description}
                           onChange={(e) => {
                             setDescription(e.target.value);
                           }}
@@ -95,6 +104,7 @@ function AddPost() {
                           <Input
                             id="exampleSelect"
                             type="select"
+                            value={duration}
                             onChange={(e) => {
                               setDuration(e.target.value);
                             }}
@@ -121,13 +131,12 @@ function AddPost() {
                     const addMinutes = (date, minutes) => {
                       return new Date(date.getTime() + minutes * 60000);
                     };
-                    const accessToken =
-                      localStorage.getItem("snackOverflowJwt");
+
                     const headers = {
                       "Content-Type": "application/json",
                       Accept: "application/json",
                       "x-access-token":
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzg4NjU5ODk1YmFjMTVkNzI1YmM3NCIsIm5pY2tuYW1lIjoiQm9zY28yIiwiZW1haWwiOiJib3NjbzJAdGVzdC5jb20iLCJpYXQiOjE2NjQ2Nzg4NDksImV4cCI6MTY2NDc2NTI0OX0.Wu0xwaUKLxoRVPcwVOzKhF7RpAfDiZ89C3eAPh6_LTA",
+                        localStorage.getItem("snackOverflowJwt") ?? "",
                     };
                     let closingTime;
                     if (duration === "endOfDay") {
@@ -142,16 +151,22 @@ function AddPost() {
                       description,
                       closingTime,
                     };
-                    console.log(body);
+       
                     const response = await fetch(`${SERVER_URL}/posts/create`, {
                       method: "POST",
                       headers: headers,
                       mode: "cors",
                       body: JSON.stringify(body),
                     });
-                    const data = await response.json();
-                    console.log(data);
-                  }} href="/SAP/home"
+                    if (response.status < 300) {
+                      resetInputs();
+                      window.location.assign("/sap/home");
+                    } else {
+                      const data = await response.json();
+                      console.log(data);
+                    }
+                  }}
+                  href="/SAP/home"
                 >
                   Save
                 </Button>
