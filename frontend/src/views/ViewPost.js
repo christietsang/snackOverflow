@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 // reactstrap components
 import { Button, Card, CardBody, CardText, Row, Col } from "reactstrap";
 
-const SERVER_URL = "http://localhost:3500/api";
+const SERVER_URL = "/api";
 
 function ViewPost() {
   const location = useLocation();

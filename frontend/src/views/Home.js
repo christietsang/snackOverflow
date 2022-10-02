@@ -5,7 +5,7 @@ import { Row, Col } from "reactstrap";
 import SnackPostCard from "../views/SnackPostCard";
 
 function Home() {
-  const SERVER_URL = "http://localhost:3500/api";
+  const SERVER_URL = "/api";
   
   const [snackPosts, setSnackPosts] = React.useState([]);
   const getSnackPosts = async () => {

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardBody, CardText, Row, Col } from "reactstrap";
 
 function UserProfile() {
-  const SERVER_URL = "http://localhost:3500/api";
+  const SERVER_URL = "/api";
   const [userInfo, setUserInfo] = useState();
   const getUserInfo = async () => {
     const response = await fetch(`${SERVER_URL}/getUserInfo`, {
