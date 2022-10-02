@@ -77,6 +77,17 @@ const postController = {
       res.json(err);
     }
   },
+  getSinglePost: async (req, res) => {
+    const postId = req.params.id;
+    try {
+      const post = await SnackPost.findById(postId).exec();
+      res.json(post);
+    } catch (err) {
+      console.log(err);
+      res.json(err);
+    }
+
+  }
 };
 
 module.exports = postController;

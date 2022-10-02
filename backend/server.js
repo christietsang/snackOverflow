@@ -22,10 +22,6 @@ app.use(logger);
 app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(errorHandler);
-app.use((req, res, next) => {
-  console.log(req.headers);
-  next();
-})
 
 
 const server = http.createServer(app);

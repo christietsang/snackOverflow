@@ -5,10 +5,7 @@ import {
   CardImg,
   CardTitle,
   CardText,
-  CardDeck,
-  CardSubtitle,
   CardImgOverlay,
-  CardBody,
 } from "reactstrap";
 
 const SnackPostCard = (props) => {
@@ -30,10 +27,15 @@ const SnackPostCard = (props) => {
         />
         <CardImgOverlay>
           <CardTitle tag="h2">{title}</CardTitle>
-          <CardText class="text-monospace">
-            {description}
-          </CardText>
-          <Button color="primary">Details...</Button>
+          <CardText class="text-monospace">{description}</CardText>
+          <Button
+            color="primary"
+            onClick={() => {
+              window.location.assign(`/sap/view-post/${props._id}`);
+            }}
+          >
+            Details...
+          </Button>
         </CardImgOverlay>
       </Card>
     </div>

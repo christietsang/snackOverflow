@@ -12,6 +12,7 @@ router.post(
   postController.createPost
 );
 router.get("/byCurrentUser", verifyJwtToken, postController.getPostByUser);
+router.get("/getSinglePost/:id", verifyJwtToken, postController.getSinglePost);
 router.put("/editPost/:id", verifyJwtToken, postController.editPost);
 
 module.exports = router;
