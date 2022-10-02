@@ -21,7 +21,7 @@ const SnackPostCard = (props) => {
           src={require("../assets/img/snax.png")}
           style={{
             height: 200,
-            opacity: 0.5,
+            opacity: 0.3,
           }}
           width="100%"
         />
