@@ -37,7 +37,8 @@ const postController = {
   getAvailablePosts: async (req, res) => {
     try {
       const posts = await SnackPost.find({ available: true }).exec();
-      res.json(posts);
+
+      res.json(posts.filter(post => post.title));
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
