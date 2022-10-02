@@ -56,7 +56,7 @@ function Home() {
         }
         ></Button>
       <Row>
-          <SnackPostCard title="test" postImages="asfas" />
+          <SnackPostCard title="test" postImages="asfas" description="someshitfromthedatabase" />
           <Col lg="4">
             <Card className="card-chart">
               <CardHeader>
