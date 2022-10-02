@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 // reactstrap components
 import {
   Button,
@@ -13,7 +13,7 @@ import {
   Input,
   Label,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 
 function addPost() {
@@ -21,7 +21,7 @@ function addPost() {
     <>
       <div className="content">
         <Row>
-        <Col md="4">
+          <Col md="4">
             <Card className="card-user">
               <CardBody>
                 <CardText />
@@ -30,12 +30,14 @@ function addPost() {
                   <div className="block block-two" />
                   <div className="block block-three" />
                   <div className="block block-four" />
+
                   <img //PICTURE OF FOOD GOES HERE
                     alt="..."
                     className=""
-                    src={require("../assets/img/emilyz.jpg")}
+                    src={require("../assets/img/snax.png")}
                   />
-                  <h5 className="title">Upload a photo</h5>
+            
+                  <h2 className="title">Upload a photo</h2>
                 </div>
               </CardBody>
             </Card>
@@ -47,17 +49,15 @@ function addPost() {
               </CardHeader>
               <CardBody>
                 <Form>
-                <Row>
+                  <Row>
                     <Col md="5">
                       <FormGroup>
-                      <legend> Snack Name: </legend>
-                        <Input
-                          placeholder="Peanut Butter Cups"
-                          type="text"
-                        />
+                        <legend> Snack Name: </legend>
+                        <Input placeholder="Peanut Butter Cups" type="text" />
                       </FormGroup>
                     </Col>
                   </Row>
+
                   <Row>
                     <Col md="5">
                       <FormGroup>
@@ -73,33 +73,18 @@ function addPost() {
                   </Row>
                   <Row>
                     <Col className="pr-md-1" md="6">
-                    <FormGroup tag="fieldset">
-                      <legend>Expiration Time:</legend>
-                      <FormGroup check>
-                        <Label check>
-                          <Input type="radio" name="radio1" />
-                          Default (End of the day)
-                        </Label>
+                      <FormGroup tag="fieldset">
+                        <legend>Expiration Time:</legend>
+                        <FormGroup>
+                          <Label for="exampleSelect">Select</Label>
+                          <Input id="exampleSelect" type="select">
+                            <option>Default: (End of the day)</option>
+                            <option>30 minutes</option>
+                            <option>1 hour</option>
+                            <option>2 hours</option>
+                          </Input>
+                        </FormGroup>
                       </FormGroup>
-                      <FormGroup check>
-                        <Label check>
-                          <Input type="radio" name="radio1" />
-                          30 minutes
-                        </Label>
-                      </FormGroup>
-                      <FormGroup check>
-                        <Label check>
-                          <Input type="radio" name="radio1" />
-                          1 hour
-                        </Label>
-                      </FormGroup>
-                      <FormGroup check>
-                        <Label check>
-                          <Input type="radio" name="radio1" />
-                          2 hours
-                        </Label>
-                      </FormGroup>
-                    </FormGroup>
                     </Col>
                   </Row>
                 </Form>
