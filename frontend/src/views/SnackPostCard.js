@@ -34,7 +34,7 @@ const SnackPostCard = (props) => {
             <Button
               color="primary"
               onClick={() => {
-                window.location.assign(`/sap/view-post/${props._id}`);
+                window.location.assign(`/SAP/view-post/${props._id}`);
               }}
             >
               Details...
