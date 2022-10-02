@@ -102,6 +102,7 @@ function Sidebar(props) {
             ) : null}
             <Nav>
               {routes.map((prop, key) => {
+                if (prop.path === '/view-post') return;
                 if (prop.redirect) return null;
                 return (
                   <li

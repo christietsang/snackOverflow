@@ -15,7 +15,7 @@ import { BackgroundColorContext } from "../../contexts/BackgroundColorContext";
 
 var ps;
 
-function Admin(props) {
+function SAP(props) {
   const location = useLocation();
   const mainPanelRef = React.useRef(null);
   const [sidebarOpened, setsidebarOpened] = React.useState(
@@ -62,7 +62,7 @@ function Admin(props) {
   };
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/SAP") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -104,7 +104,7 @@ function Admin(props) {
               />
               <Switch>
                 {getRoutes(routes)}
-                <Redirect from="*" to="/admin/home" />
+                <Redirect from="*" to="/SAP/home" />
               </Switch>
             </div>
           </div>
@@ -115,4 +115,4 @@ function Admin(props) {
   );
 }
 
-export default Admin;
+export default SAP;

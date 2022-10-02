@@ -20,9 +20,9 @@ root.render(
     <BackgroundColorWrapper>
       <BrowserRouter>
         <Switch>
-          <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+          <Route path="/SAP" render={(props) => <AdminLayout {...props} />} />
           <Route path="/rtl" render={(props) => <RTLLayout {...props} />} />
-          <Redirect from="/" to="/admin/home" />
+          <Redirect from="/" to="/SAP/home" />
         </Switch>
       </BrowserRouter>
     </BackgroundColorWrapper>
