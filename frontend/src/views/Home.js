@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 // reactstrap components
 import { Row, Col } from "reactstrap";
 import SnackPostCard from "../views/SnackPostCard";
-import listReactFiles from 'list-react-files';
 
 function Home() {
   const SERVER_URL = "http://localhost:3500/api";
@@ -23,7 +22,7 @@ function Home() {
     getSnackPosts();
   }, []);
 
-  
+
 
   return (
     <>
