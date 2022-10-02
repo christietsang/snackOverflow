@@ -159,6 +159,7 @@ function AddPost() {
             </Card>
           </Col>
         </Row>
+
       </div>
     </>
   );
