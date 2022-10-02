@@ -7,33 +7,21 @@ import { Line, Bar } from "react-chartjs-2";
 // reactstrap components
 import {
   Button,
-  ButtonGroup,
   Card,
   CardHeader,
   CardBody,
   CardTitle,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  Label,
-  FormGroup,
-  Input,
-  Table,
   Row,
   Col,
-  UncontrolledTooltip
 } from "reactstrap";
 
 // core components
 import {
-  chartExample1,
   chartExample2,
-  chartExample3,
-  chartExample4
 } from "../variables/charts.js";
 
 function Home() {
+  const SERVER_URL = "http://localhost:3500/api";
   const [bigChartData, setbigChartData] = React.useState("data1");
   const setBgChartData = (name) => {
     setbigChartData(name);
@@ -41,6 +29,31 @@ function Home() {
   return (
     <>
       <div className="content">
+        < Button
+          className="btn-fill"
+          color="primary"
+          type="submit"
+          onClick={async (e) => {
+
+            const accessToken =
+                      localStorage.getItem("snackOverflowJwt");
+                      const headers = {
+                        'Content-Type': "application/json",
+                        'Accept':'application/json',
+                        "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzg4NjU5ODk1YmFjMTVkNzI1YmM3NCIsIm5pY2tuYW1lIjoiQm9zY28yIiwiZW1haWwiOiJib3NjbzJAdGVzdC5jb20iLCJpYXQiOjE2NjQ2Nzg4NDksImV4cCI6MTY2NDc2NTI0OX0.Wu0xwaUKLxoRVPcwVOzKhF7RpAfDiZ89C3eAPh6_LTA",
+                      };
+
+          const response = await fetch(`${SERVER_URL}/posts/byCurrentUser`, {
+            method: "GET",
+            headers: headers,
+          });
+
+          const data = await response.json();
+          console.log(data);
+
+          }
+        }
+        ></Button>
       <Row>
           <Col lg="4">
             <Card className="card-chart">

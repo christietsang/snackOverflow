@@ -123,10 +123,11 @@ function AddPost() {
                     };
                     const accessToken =
                       localStorage.getItem("snackOverflowJwt");
-                    const headers = {
-                      contentType: "application/json",
-                      "x-access-token": accessToken ?? "",
-                    };
+                      const headers = {
+                        'Content-Type': "application/json",
+                        'Accept':'application/json',
+                        "x-access-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMzg4NjU5ODk1YmFjMTVkNzI1YmM3NCIsIm5pY2tuYW1lIjoiQm9zY28yIiwiZW1haWwiOiJib3NjbzJAdGVzdC5jb20iLCJpYXQiOjE2NjQ2Nzg4NDksImV4cCI6MTY2NDc2NTI0OX0.Wu0xwaUKLxoRVPcwVOzKhF7RpAfDiZ89C3eAPh6_LTA",
+                      };
                     let closingTime;
                     if (duration === "endOfDay") {
                       closingTime = new Date().setUTCHours(23, 59, 59, 999);
@@ -143,12 +144,9 @@ function AddPost() {
                     console.log(body);
                     const response = await fetch(`${SERVER_URL}/posts/create`, {
                       method: "POST",
-                      headers,
-                      body: JSON.stringify({
-                        title,
-                        description,
-                        closingTime,
-                      }),
+                      headers: headers,
+                      mode: 'cors',
+                      body: JSON.stringify(body),
                     });
                     const data = await response.json();
                     console.log(data);
