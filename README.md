@@ -40,7 +40,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-snackOverflow is a web application that helps people who are returning to the office make new friendships and connections over a shared meal.  Users can swap and share their food, and can leave anonymous comments on other people's posts to let them know they are interested in sharing their snack.
+snackOverflow is a web application that helps people who are returning to the office make new friendships and connections over a shared meal.  Users can swap and share their food, and can leave anonymous comments on other people's posts to let them know they are interested in sharing their snack.  Developed in a day and a half for SAP's 2022 Hackathon.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
