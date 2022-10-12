@@ -1,17 +1,14 @@
 <div id="top"></div>
 
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
 
 
-
-
-<!-- PROJECT LOGO -->
+<!-- PROJECT INFO -->
 <br />
 <div align="center">
   <img src="frontend\src\assets\favicon.png"alt="snacks" width="90" height="90">
 
-  <h1 align="center">snackOverflow</h1>
+  <h1 align="center" style="border-bottom: none">snackOverflow</h1>
 
   <p align="center">
     Swap or share snacks with your colleagues!
@@ -39,6 +36,7 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+<br>
 
 <!-- ABOUT THE PROJECT -->
 # About The Project
@@ -57,7 +55,8 @@ snackOverflow is a web application that helps people who are returning to the of
 
 <!-- GETTING STARTED -->
 # Getting Started
-## Installation
+<br>
+<h2 id="installation">Installation</h2>
 
 1. Clone the repo
    ```sh
@@ -98,27 +97,21 @@ snackOverflow is a web application that helps people who are returning to the of
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
-# Get in Touch!
+# Contact
 
-## **Bosco Chan**
+<h2>Bosco Chan</h2>
 
 [![LinkedIn][linkedin-shield]][linkedin-urlBC]
-
 <br>
 
-## **Christie Tsang** 
+<h2>Christie Tsang</h2>
+
 [![LinkedIn][linkedin-shield]][linkedin-urlCT]
-
-
 <br>
 
-## **Belal Kourkmas**
+<h2>Belal Kourkmas</h2>
 
 [![LinkedIn][linkedin-shield]][linkedin-urlBK]
-
-
-
-
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -128,9 +121,8 @@ snackOverflow is a web application that helps people who are returning to the of
 # Acknowledgments
 
 * [Markdown Guide](https://www.markdownguide.org/basic-syntax/#reference-style-links)
-* [FXGL Library](https://github.com/AlmasB/FXGL)
-* [Examples of Existing FXGL Games](https://github.com/AlmasB/FXGLGames)
-* [FXGL Wiki](https://github.com/AlmasB/FXGL/wiki/FXGL-11)
+* [Tutorial on MERN stack](https://www.youtube.com/playlist?list=PL0Zuz27SZ-6P4dQUsoDatjEGpmBpcOW8V)
+* [React Tutorial](https://www.youtube.com/playlist?list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
