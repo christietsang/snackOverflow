@@ -8,10 +8,10 @@
 <div align="center">
   <img src="frontend\src\assets\favicon.png"alt="snacks" width="90" height="90">
 
-  <h1 align="center" style="border-bottom: none">snackOverflow</h1>
+  <h1 align="center"">snackOverflow</h1>
 
   <p align="center">
-    Swap or share snacks with your colleagues!
+    Get to know your colleagues while swapping and sharing snacks!
   </p>
 </div>
 
@@ -39,12 +39,12 @@
 <br>
 
 <!-- ABOUT THE PROJECT -->
-# About The Project
+## About The Project
 snackOverflow is a web application that helps people who are returning to the office make new friendships and connections over a shared meal.  Users can swap and share their food, and can leave anonymous comments on other people's posts to let them know they are interested in sharing their snack.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Built With
+### Built With
 
 * [MongoDB](https://www.mongodb.com/)
 * [Express](https://expressjs.com/)
@@ -54,9 +54,8 @@ snackOverflow is a web application that helps people who are returning to the of
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
-# Getting Started
-<br>
-<h2 id="installation">Installation</h2>
+## Getting Started
+<h3 id="installation">Installation</h3>
 
 1. Clone the repo
    ```sh
@@ -80,9 +79,8 @@ snackOverflow is a web application that helps people who are returning to the of
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 <!-- ROADMAP -->
-# Roadmap
+## Roadmap
 
 - [X] Users can create posts for their snacks
 - [X] Data for posts persists to the database
@@ -97,19 +95,19 @@ snackOverflow is a web application that helps people who are returning to the of
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
-# Contact
+## Contact
 
-<h2>Bosco Chan</h2>
+<h3>Bosco Chan</h3>
 
 [![LinkedIn][linkedin-shield]][linkedin-urlBC]
 <br>
 
-<h2>Christie Tsang</h2>
+<h3>Christie Tsang</h3>
 
 [![LinkedIn][linkedin-shield]][linkedin-urlCT]
 <br>
 
-<h2>Belal Kourkmas</h2>
+<h3>Belal Kourkmas</h3>
 
 [![LinkedIn][linkedin-shield]][linkedin-urlBK]
 
