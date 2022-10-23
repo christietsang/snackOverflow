@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3500;
 require("dotenv").config();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.use(logger);
 app.use(cors(corsOptions));
 app.use(cookieParser());
@@ -71,14 +71,8 @@ app.get("/api/getUserInfo", verifyJwtToken, (req, res) => {
 
 
 app.all("*", (req, res) => {
-  res.status(404);
-  if (req.accepts("html")) {
-    res.sendFile(path.join(__dirname, "views", "404.html"));
-  } else if (req.accepts("json")) {
-    res.json({ message: "404 Not Found" });
-  } else {
-    res.type("txt").send("404 Not Found");
-  }
+  const frontendFile = path.join(__dirname, "../frontend/build", "index.html")
+  res.sendFile(frontendFile);
 });
 
 db.connect(process.env.MONGO_DATABASE_URL);

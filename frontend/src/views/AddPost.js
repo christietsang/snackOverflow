@@ -16,7 +16,7 @@ import {
   Col,
 } from "reactstrap";
 
-const SERVER_URL = "http://localhost:3500/api";
+const SERVER_URL = "/api";
 
 function AddPost() {
   const [title, setTitle] = useState("");
