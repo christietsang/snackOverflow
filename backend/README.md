@@ -11,7 +11,7 @@ POST /api/auth/register
 body: {
   nickname: String;
   email: String
-  password: DateTime,
+  password: String,
 }
 Returns user data and access token
 ```
@@ -22,7 +22,7 @@ POST /api/auth/signin
 
 body: {
   email: String
-  password: DateTime,
+  password: String,
 }
 
 Returns user data and access token
